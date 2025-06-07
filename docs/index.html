@@ -2,7 +2,84 @@
 <head>
     <meta charset="UTF-8"/>
 </head>
+<style>
+    body, html{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    .Slider{
+        width: 20%;
+        background-color: #fff2eb;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+    .pdf{
+        width: 80%;
+    }
+    button, .window, .box{
+        height: auto;
+        width: 90%;
+        margin: 5% 5% 0 5%;
+        padding: 10px 5px 10px 5px;
+        text-align: center;
+        border: none;
+        color: #670D2F;
+        border-radius: 15px;
+        cursor: pointer;
+        font-family: 'Times New Roman';
+        font-size: 20px;
+    }
+    .menu{
+        background-color: #ffdcdc;
+    }
+    .butt, .box{
+        background-color: #ffe8cd;
+    }
+    .window{
+        background-color: #ffd6ba;
+    }
+    #podstawa, #rozszerzenie, #studia{
+        display: none;
+        flex-direction: column;
+    }
+</style>
+<script>
+    function swapSrc(newSrc){
+        document.getElementById("pdfcior").src = newSrc;
+    }
+    function changeSection(showId){
+        document.getElementById("podstawa").style.display = "none"
+        document.getElementById("rozszerzenie").style.display = "none"
+        document.getElementById("studia").style.display = "none"
+        document.getElementById(showId).style.display = "flex"
+    }
+</script>
 <body>
-    <h1>test</h1>
+    <div class="Slider">
+        <span>
+            <button class="window" onclick='window.open("https:/\/github.com/Aleks-Zielinski/Matematyka-materialy", "_blank")'>Aleks Zieliński <br> Matematyka matieriały</button>
+        </span>
+        <span>
+            <button class="menu" onclick='changeSection("podstawa")'>Matura podstawowa</button>
+            <button class="menu" onclick='changeSection("rozszerzenie")'>Matura rozszerzona</button>
+            <button class="menu" onclick='changeSection("studia")'>Studia</button>
+        </span>
+        <span id="podstawa">
+            <button class="butt" onclick='swapSrc("../Matura_podstawowa/Rownania_kwadratowe.pdf")'>Równania kwadratowe</button>
+        </span>
+        <span id="rozszerzenie">
+            <button class="butt" onclick='swapSrc("../Matura_rozszerzona/Rownania_kwadratowe_parametr.pdf")'>Równania kwadratowe z parametrem</button>
+        </span>
+        <span id="studia">
+            <div class="box"><b>Brak</b></div>
+        </span>
+    </div>
+    <div class="pdf">
+        <embed id="pdfcior" src="../Matura_podstawowa/Rownania_kwadratowe.pdf" frameBorder="0" scrolling="auto" height="100%" width="100%"/>
+    </div>
 </body>
 </html>
