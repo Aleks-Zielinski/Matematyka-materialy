@@ -14,7 +14,7 @@
     }
     .Slider{
         width: 20%;
-        background-color: #fff2eb;
+        background-image: linear-gradient(to bottom right, #cfe7f3, #b2d0db);
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
@@ -22,7 +22,7 @@
     .pdf{
         width: 80%;
     }
-    button, .window, .box{
+    button{
         height: auto;
         width: 90%;
         margin: 5% 5% 0 5%;
@@ -34,15 +34,20 @@
         cursor: pointer;
         font-family: 'Times New Roman';
         font-size: 20px;
+        transition: 0.3s;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     .menu{
-        background-color: #ffdcdc;
+        background-color: #faeed1;
     }
-    .butt, .box{
-        background-color: #ffe8cd;
+    .butt{
+        background-color: #fdf7e4;
     }
     .window{
-        background-color: #ffd6ba;
+        background-color: #ded0b6;
+    }
+    .menu:hover, .butt:hover{
+        background-color: #ffc5c5;
     }
     #podstawa, #rozszerzenie, #studia{
         display: none;
@@ -63,7 +68,7 @@
 <body>
     <div class="Slider">
         <span>
-            <button class="window" onclick='window.open("https:/\/github.com/Aleks-Zielinski/Matematyka-materialy", "_blank")'>Aleks Zieliński <br> Matematyka materiały</button>
+            <button class="window" onclick='swapSrc("./Menu.pdf")'>Aleks Zieliński <br> Matematyka materiały</button>
         </span>
         <span>
             <button class="menu" onclick='changeSection("podstawa")'>Matura podstawowa</button>
@@ -72,17 +77,18 @@
         </span>
         <span id="podstawa">
             <button class="butt" onclick='swapSrc("./Matura_podstawowa/Rownania_kwadratowe.pdf")'>Równania kwadratowe</button>
+            <button class="butt" onclick='swapSrc("./Matura_podstawowa/Matura_maj_2024_f2023.pdf")'>Matura maj 2024 (formuła 2023)</button>
         </span>
         <span id="rozszerzenie">
             <button class="butt" onclick='swapSrc("./Matura_rozszerzona/Rownania_kwadratowe_parametr.pdf")'>Równania kwadratowe z parametrem</button>
             <button class="butt" onclick='swapSrc("./Matura_rozszerzona/Wykres_wielomianu.pdf")'>Wykres wielomianu</button>
         </span>
         <span id="studia">
-            <div class="box"><b>Brak</b></div>
+            <button class="butt" onclick='swapSrc("./Menu.pdf")'><b>Brak</b></button>
         </span>
     </div>
     <div class="pdf">
-        <embed id="pdfcior" src="./Matura_rozszerzona/Rownania_kwadratowe_parametr.pdf" frameBorder="0" scrolling="auto" height="100%" width="100%"/>
+        <embed id="pdfcior" src="./Menu.pdf" frameBorder="0" scrolling="auto" height="100%" width="100%"/>
     </div>
 </body>
 </html>
